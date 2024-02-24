@@ -2,7 +2,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import Header from "../components/Header"
-import Providers from "../contexts/Providers"
+import Providers from "../contexts/providers"
 import { cn } from "../lib/utils"
 
 import "./globals.css"

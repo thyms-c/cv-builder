@@ -52,10 +52,50 @@ model User {
   image         String?
   createdAt     DateTime  @default(now()) @map(name: "created_at")
 
+  snippets Snippet[]
   accounts Account[]
   sessions Session[]
 
   @@map(name: "users")
+}
+
+model Snippet {
+  id String @id @default(cuid())
+
+  title String? @db.VarChar(70)
+  code  String? @db.Text
+
+  language    String  @default("typescript")
+  theme       String  @default("bubblegum")
+  fontFamily  String  @default("fira_code")
+  fontSize    String  @default("14")
+  lineNumbers Boolean @default(true)
+  padding     String  @default("32")
+
+  customColors Json?   @default("{}")
+  colorMode    String  @default("rgb")
+  angle        Int     @default(145)
+  grain        Boolean @default(false)
+
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  views View?
+
+  @@index([userId])
+  @@map(name: "snippets")
+}
+
+model View {
+  count Int @default(0)
+
+  snippet   Snippet @relation(fields: [snippetId], references: [id], onDelete: Cascade)
+  snippetId String  @unique
+
+  @@map(name: "views")
 }
 
 model VerificationToken {
