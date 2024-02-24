@@ -1,7 +1,10 @@
+import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import Header from "../components/Header"
 import Providers from "../contexts/Providers"
+import { cn } from "../lib/utils"
+
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -18,11 +21,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Providers>
-          <Header />
-          <div>{children}</div>
-        </Providers>
+      <body className={cn("min-h-screen")}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="class"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Providers>
+            <Header />
+            <div>{children}</div>
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   )
