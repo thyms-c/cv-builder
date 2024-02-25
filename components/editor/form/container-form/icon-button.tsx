@@ -104,11 +104,11 @@ export const BulletListIconButton = ({
       onClick={() => onClick(!showBulletPoints)}
       tooltipText={tooltipText}
       size="small"
-      className={showBulletPoints ? "!bg-sky-100" : ""}
+      className={showBulletPoints ? "bg-zinc-300 dark:!bg-zinc-700" : ""}
     >
       <ListBulletIcon
         className={`h-4 w-4 ${
-          showBulletPoints ? "text-gray-700" : "text-gray-400"
+          showBulletPoints ? "text-white" : "text-gray-400"
         }`}
         aria-hidden="true"
       />

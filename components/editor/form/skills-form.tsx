@@ -33,7 +33,7 @@ export const SkillsForm = () => {
             label="Skills List"
             labelClassName="col-span-full"
             name="descriptions"
-            placeholder="Bullet points"
+            placeholder=""
             value={descriptions}
             onChange={handleSkillsChange}
             showBulletPoints={showBulletPoints}

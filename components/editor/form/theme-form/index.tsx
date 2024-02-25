@@ -21,6 +21,8 @@ export const ThemeForm = () => {
   const settings = useAppSelector(selectSettings)
   const { fontSize, fontFamily, documentSize } = settings
   const themeColor = settings.themeColor || DEFAULT_THEME_COLOR
+  const themeWhite = "#ffffff"
+  const themeBlack = "#000000"
   const dispatch = useAppDispatch()
 
   const handleSettingsChange = (field: GeneralSetting, value: string) => {
@@ -35,9 +37,7 @@ export const ThemeForm = () => {
             className="h-6 w-6 text-gray-600"
             aria-hidden="true"
           />
-          <h1 className="text-lg font-semibold tracking-wide text-gray-900">
-            Resume Setting
-          </h1>
+          <label className="font-semibold">Resume Setting</label>
         </div>
         <div>
           <InlineInput
@@ -46,7 +46,7 @@ export const ThemeForm = () => {
             value={settings.themeColor}
             placeholder={DEFAULT_THEME_COLOR}
             onChange={handleSettingsChange}
-            inputStyle={{ color: themeColor }}
+            // inputStyle={{ color: themeBlack }}
           />
           <div className="mt-2 flex flex-wrap gap-2">
             {THEME_COLORS.map((color, idx) => (
@@ -71,7 +71,7 @@ export const ThemeForm = () => {
           <InputGroupWrapper label="Font Family" />
           <FontFamilySelectionCSR
             selectedFontFamily={fontFamily}
-            themeColor={themeColor}
+            themeColor={themeBlack}
             handleSettingsChange={handleSettingsChange}
           />
         </div>
@@ -85,7 +85,7 @@ export const ThemeForm = () => {
           />
           <FontSizeSelections
             fontFamily={fontFamily as FontFamily}
-            themeColor={themeColor}
+            themeColor={themeBlack}
             selectedFontSize={fontSize}
             handleSettingsChange={handleSettingsChange}
           />
@@ -93,7 +93,7 @@ export const ThemeForm = () => {
         <div>
           <InputGroupWrapper label="Document Size" />
           <DocumentSizeSelections
-            themeColor={themeColor}
+            themeColor={themeBlack}
             selectedDocumentSize={documentSize}
             handleSettingsChange={handleSettingsChange}
           />

@@ -1,3 +1,6 @@
+import { Label } from "@radix-ui/react-dropdown-menu"
+import { Input } from "../../../ui/input"
+
 interface InputProps<K extends string, V extends string> {
   label: string
   labelClassName?: string
@@ -18,19 +21,19 @@ export const InlineInput = <K extends string>({
   onChange,
 }: InputProps<K, string>) => {
   return (
-    <label
-      className={`flex gap-2 text-base font-medium text-gray-700 ${labelClassName}`}
+    <Label
+      className={`flex items-center gap-2 text-base font-medium ${labelClassName}`}
     >
       <span className="w-28">{label}</span>
-      <input
+      <Input
         type="text"
         name={name}
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(name, e.target.value)}
-        className="w-[5rem] border-b border-gray-300 text-center font-semibold leading-3 outline-none"
+        className="w-[5rem] text-center h-8"
         style={inputStyle}
       />
-    </label>
+    </Label>
   )
 }

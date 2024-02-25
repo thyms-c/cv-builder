@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic"
 import { PX_PER_PT } from "../../../../lib/constants"
 import { GeneralSetting } from "../../../../lib/redux/settings-slice"
+import { Button } from "../../../ui/button"
 import {
   FONT_FAMILY_TO_DISPLAY_NAME,
   FONT_FAMILY_TO_STANDARD_SIZE_IN_PT,
@@ -28,8 +29,9 @@ const SelectionComponent = ({
   }
 
   return (
-    <div
-      className="flex w-[105px] cursor-pointer items-center justify-center rounded-md border border-gray-300 py-1.5 shadow-sm hover:border-gray-400 hover:bg-gray-100"
+    <Button
+      variant="secondary"
+      // className="flex w-[105px] cursor-pointer items-center justify-center rounded-md border border-gray-300 py-1.5 shadow-sm hover:border-gray-400 hover:bg-gray-100"
       onClick={onClick}
       style={isSelected ? selectedStyle : style}
       onKeyDown={(e) => {
@@ -38,7 +40,7 @@ const SelectionComponent = ({
       tabIndex={0}
     >
       {children}
-    </div>
+    </Button>
   )
 }
 
@@ -148,9 +150,6 @@ export const DocumentSizeSelections = ({
           >
             <div className="flex flex-col items-center">
               <div>{type}</div>
-              <div className="text-xs">
-                {type === "Letter" ? "(US, Canada)" : "(India,Other Countries)"}
-              </div>
             </div>
           </SelectionComponent>
         )

@@ -21,7 +21,7 @@ export const ProfileForm = () => {
           label="Name"
           labelClassName="col-span-full"
           name="name"
-          placeholder="Your Name"
+          placeholder=""
           value={name}
           onChange={handleProfileChange}
         />
@@ -29,7 +29,7 @@ export const ProfileForm = () => {
           label="Objective"
           labelClassName="col-span-full"
           name="summary"
-          placeholder="Entrepreneur and innovator obsessed with making exceptional products"
+          placeholder=""
           value={summary}
           onChange={handleProfileChange}
         />
@@ -37,7 +37,7 @@ export const ProfileForm = () => {
           label="Email"
           labelClassName="col-span-4"
           name="email"
-          placeholder="hello@world.com"
+          placeholder=""
           value={email}
           onChange={handleProfileChange}
         />
@@ -45,7 +45,7 @@ export const ProfileForm = () => {
           label="Phone"
           labelClassName="col-span-2"
           name="phone"
-          placeholder="(123)456-7890"
+          placeholder=""
           value={phone}
           onChange={handleProfileChange}
         />
@@ -53,7 +53,7 @@ export const ProfileForm = () => {
           label="Website"
           labelClassName="col-span-4"
           name="url"
-          placeholder="linkedin.com/in/yourname"
+          placeholder=""
           value={url}
           onChange={handleProfileChange}
         />
@@ -61,7 +61,7 @@ export const ProfileForm = () => {
           label="Location"
           labelClassName="col-span-2"
           name="location"
-          placeholder="CITY, STATE"
+          placeholder=""
           value={location}
           onChange={handleProfileChange}
         />

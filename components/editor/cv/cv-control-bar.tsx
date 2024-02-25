@@ -7,6 +7,7 @@ import {
 import { usePDF } from "@react-pdf/renderer"
 import dynamic from "next/dynamic"
 import { useEffect } from "react"
+import { Button } from "../../ui/button"
 import { useSetDefaultScale } from "./hooks"
 
 const CvControlBar = ({
@@ -49,6 +50,7 @@ const CvControlBar = ({
             setScaleOnResize(false)
             setScale(Number(e.target.value))
           }}
+          style={{ accentColor: "black" }}
         />
         <div className="w-10">{`${Math.round(scale * 100)}%`}</div>
         <label className="hidden items-center gap-1 lg:flex">
@@ -57,17 +59,20 @@ const CvControlBar = ({
             className="mt-0.5 h-4 w-4"
             checked={true}
             onChange={() => setScaleOnResize((prev) => !prev)}
+            style={{ accentColor: "black" }}
           />
           <span className="select-none">Autoscale</span>
         </label>
       </div>
       <a
-        className="ml-1 flex items-center gap-1 rounded-md border border-gray-300 px-3 py-0.5 hover:bg-gray-100 lg:ml-8"
+        className=""
         href={instance.url!}
         download={fileName}
       >
-        <ArrowDownTrayIcon className="h-4 w-4" />
-        <span className="whitespace-nowrap">Download Cv</span>
+        <Button className="space-x-2">
+          <ArrowDownTrayIcon className="h-4 w-4" />
+          <span className="whitespace-nowrap">Download</span>
+        </Button>
       </a>
     </div>
   )

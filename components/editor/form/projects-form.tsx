@@ -39,7 +39,7 @@ export const ProjectsForm = () => {
               label="Project Name"
               labelClassName="col-span-4"
               name="project"
-              placeholder="XYZ Project"
+              placeholder=""
               value={project}
               onChange={handleProjectChange}
             />
@@ -47,7 +47,7 @@ export const ProjectsForm = () => {
               label="Date"
               labelClassName="col-span-2"
               name="date"
-              placeholder="Jan 2022 - Present"
+              placeholder=""
               value={date}
               onChange={handleProjectChange}
             />
@@ -55,7 +55,7 @@ export const ProjectsForm = () => {
               label="Description"
               labelClassName="col-span-full"
               name="descriptions"
-              placeholder="Bullet Points"
+              placeholder=""
               value={descriptions}
               onChange={handleProjectChange}
             />

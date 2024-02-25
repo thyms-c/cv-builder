@@ -50,7 +50,7 @@ export const EducationsForm = () => {
               label="School"
               labelClassName="col-span-4"
               name="school"
-              placeholder="XYZ University"
+              placeholder=""
               value={school}
               onChange={handleWorkExperienceChange}
             />
@@ -58,7 +58,7 @@ export const EducationsForm = () => {
               label="Date"
               labelClassName="col-span-2"
               name="date"
-              placeholder="Jan 2022 - Present"
+              placeholder=""
               value={date}
               onChange={handleWorkExperienceChange}
             />
@@ -66,7 +66,7 @@ export const EducationsForm = () => {
               label="Degree & Major"
               labelClassName="col-span-4"
               name="degree"
-              placeholder="Bachelor of Science in Computer Engineering"
+              placeholder=""
               value={degree}
               onChange={handleWorkExperienceChange}
             />
@@ -74,7 +74,7 @@ export const EducationsForm = () => {
               label="GPA"
               labelClassName="col-span-2"
               name="gpa"
-              placeholder="8.55"
+              placeholder=""
               value={gpa}
               onChange={handleWorkExperienceChange}
             />
@@ -83,7 +83,7 @@ export const EducationsForm = () => {
                 label="Additional Information (Optional)"
                 labelClassName="col-span-full"
                 name="descriptions"
-                placeholder="Feel free to enter additional activities and so on..."
+                placeholder=""
                 value={descriptions}
                 onChange={handleWorkExperienceChange}
                 showBulletPoints={showBulletPoints}

@@ -37,7 +37,7 @@ export type GeneralSetting = Exclude<
 >
 
 export const DEFAULT_THEME_COLOR = "#000000"
-export const DEAFULT_FONT_FAMILY = "Roboto"
+export const DEAFULT_FONT_FAMILY = "Arial"
 export const DEFAULT_FONT_SIZE = "11"
 export const DEFAULT_FONT_COLOR = "#000000"
 

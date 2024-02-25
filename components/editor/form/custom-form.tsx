@@ -31,7 +31,7 @@ export const CustomForm = () => {
             label="Custom Textbox"
             labelClassName="col-span-full"
             name="descriptions"
-            placeholder="Bullet points"
+            placeholder=""
             value={descriptions}
             onChange={handleCustomChange}
             showBulletPoints={showBulletPoints}

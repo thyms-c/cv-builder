@@ -1,4 +1,5 @@
 import ContentEditable from "react-contenteditable"
+import { Label } from "../../../ui/label"
 
 interface InputProps<K extends string, V extends string | string[]> {
   label: string
@@ -19,14 +20,15 @@ export const InputGroupWrapper = ({
   className?: string
   children?: React.ReactNode
 }) => (
-  <label className={`text-base font-medium text-gray-700 ${className}`}>
-    {label}
+  <Label className={`${className} mx-1`}>
+    <div className="ml-1">{label}</div>
     {children}
-  </label>
+  </Label>
 )
 
 export const INPUT_CLASS_NAME =
-  "mt-1 px-3 py-2 block w-full rounded-md border border-gray-300 text-gray-300 shadow-sm outline-none font-normal text-base"
+  // "mt-1 px-3 py-2 block w-full rounded-md border border-input bg-background text-gray-300 shadow-sm outline-none font-normal text-base"
+  "flex mt-2 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 
 export const Input = <K extends string>({
   name,

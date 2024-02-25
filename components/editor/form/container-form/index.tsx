@@ -21,6 +21,8 @@ import {
   selectIsLastForm,
   selectShowByForm,
 } from "../../../../lib/redux/settings-slice"
+import { Button } from "../../../ui/button"
+import { Input } from "../../../ui/input"
 import { ExpanderWithHeightTransition } from "./expander-with-height-transition"
 import { DeletIconButton, MoveIconButton, ShowIconButton } from "./icon-button"
 
@@ -40,7 +42,7 @@ export const BaseForm = ({
   className?: string
 }) => (
   <section
-    className={`flex flex-col gap-3 rounded-md bg-white dark:bg-zinc-900 p-6 pt-4 shadow transition-opacity duration-200 ${className}`}
+    className={`flex flex-col gap-3 rounded-md bg-white dark:bg-zinc-900 border p-6 pt-4 shadow transition-opacity duration-200 ${className}`}
   >
     {children}
   </section>
@@ -89,9 +91,9 @@ export const Form = ({
             className="h-6 w-6 text-gray-600"
             aria-hidden="true"
           />
-          <input
+          <Input
             type="text"
-            className="block w-full border-b border-transparent text-lg font-semibold tracking-wide text-gray-900 outline-none hover:border-gray-300 hover:shadow-sm focus:border-gray-300 focus:shadow-sm"
+            // className="block w-full border-b border-transparent text-lg font-semibold tracking-wide text-gray-900 outline-none hover:border-gray-300 hover:shadow-sm focus:border-gray-300 focus:shadow-sm"
             value={heading}
             onChange={(e) => setHeading(e.target.value)}
           />
@@ -120,16 +122,16 @@ export const Form = ({
       </ExpanderWithHeightTransition>
       {showForm && addButtonText && (
         <div className="mt-2 flex justify-end">
-          <button
+          <Button
             type="button"
             onClick={() => {
               dispatch(addSectionInForm({ form }))
             }}
-            className="flex items-center rounded-md bg-white py-2 pl-3 pr-4 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            // className="flex items-center rounded-md bg-white py-2 pl-3 pr-4 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
           >
-            <PlusSmallIcon className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" />
+            <PlusSmallIcon className="-ml-0.5 mr-1.5 h-5 w-5" />
             {addButtonText}
-          </button>
+          </Button>
         </div>
       )}
     </BaseForm>

@@ -46,7 +46,7 @@ export const WorkExperiencesForm = () => {
               label="Company"
               labelClassName="col-span-full"
               name="company"
-              placeholder="XYZ Company"
+              placeholder=""
               value={company}
               onChange={handleWorkExperienceChange}
             />
@@ -54,7 +54,7 @@ export const WorkExperiencesForm = () => {
               label="Job Totle"
               labelClassName="col-span-4"
               name="jobTitle"
-              placeholder="Software Engineer"
+              placeholder=""
               value={jobTitle}
               onChange={handleWorkExperienceChange}
             />
@@ -62,7 +62,7 @@ export const WorkExperiencesForm = () => {
               label="Date"
               labelClassName="col-span-2"
               name="date"
-              placeholder="Jan 2022 - Present"
+              placeholder=""
               value={date}
               onChange={handleWorkExperienceChange}
             />
@@ -70,7 +70,7 @@ export const WorkExperiencesForm = () => {
               label="Description"
               labelClassName="col-span-full"
               name="descriptions"
-              placeholder="Bullet points"
+              placeholder=""
               value={descriptions}
               onChange={handleWorkExperienceChange}
             />
