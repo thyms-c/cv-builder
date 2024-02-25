@@ -1,4 +1,7 @@
+"use client"
+
 import { ChevronRight } from "lucide-react"
+import Link from "next/link"
 import { Button } from "../ui/button"
 
 export default function Hero() {
@@ -34,9 +37,14 @@ export default function Hero() {
           </div>
 
           <div className="mt-8 gap-3 flex justify-center">
-            <Button className="bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 text-white font-semibold space-x-2">
-              <span>Get started</span>
-              <ChevronRight className="h-4 w-4" />
+            <Button
+              asChild
+              className="bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 text-white font-semibold space-x-2"
+            >
+              <Link href="/editor">
+                <span>Get started</span>
+                <ChevronRight className="h-4 w-4" />
+              </Link>
             </Button>
             <Button variant="outline">$ pnpm i cv-builder</Button>
           </div>

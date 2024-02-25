@@ -33,6 +33,7 @@
     "next-auth": "^4.24.6",
     "next-themes": "^0.2.1",
     "react": "^18",
+    "react-contenteditable": "^3.3.7",
     "react-dom": "^18",
     "react-frame-component": "^5.2.6",
     "react-hotkeys-hook": "^4.5.0",
