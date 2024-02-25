@@ -39,7 +39,7 @@ export const CvForm = () => {
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      <section className="flex flex-col max-w-2xl gap-8 p-[var(--Cv-padding)]">
+      <section className="flex flex-col max-w-2xl gap-8 p-[var(--Cv-padding)] mt-8 mr-4">
         <ProfileForm />
         {formsOrder.map((form) => {
           const Component = formTypeToComponent[form]
