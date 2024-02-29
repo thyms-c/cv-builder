@@ -41,7 +41,7 @@ export default function Hero() {
               asChild
               className="bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 text-white font-semibold space-x-2"
             >
-              <Link href="/editor">
+              <Link href="/parse">
                 <span>Get started</span>
                 <ChevronRight className="h-4 w-4" />
               </Link>
