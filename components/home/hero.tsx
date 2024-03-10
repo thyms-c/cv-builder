@@ -41,12 +41,19 @@ export default function Hero() {
               asChild
               className="bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 text-white font-semibold space-x-2"
             >
-              <Link href="/parse">
+              <Link href="/editor/parse">
                 <span>Get started</span>
                 <ChevronRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline">$ pnpm i cv-builder</Button>
+            <Button
+              asChild
+              variant="outline"
+            >
+              <Link href="/parse">
+                <span>parse</span>
+              </Link>
+            </Button>
           </div>
 
           <div className="mt-5 flex justify-center items-center gap-x-1 sm:gap-x-3">
