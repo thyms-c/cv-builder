@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import CvDropzone from "../../components/cv-dropzone"
+import Header from "../../components/header"
 import { buttonVariants } from "../../components/ui/button"
 import { Label } from "../../components/ui/label"
 import { getHasUsedAppBefore } from "../../lib/redux/local-storage"
@@ -20,7 +21,8 @@ export default function ImportCv() {
   }, [])
 
   return (
-    <main>
+    <>
+      <Header />
       <div className="mx-auto mt-14 max-w-3xl rounded-md border border-gray-200 px-10 py-10 text-center shadow-md">
         {!hasUsedAppBefore ? (
           <>
@@ -62,7 +64,7 @@ export default function ImportCv() {
           </>
         )}
       </div>
-    </main>
+    </>
   )
 }
 

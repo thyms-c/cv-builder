@@ -1,8 +1,7 @@
 import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import Header from "../components/header"
-import Providers from "../contexts/Providers"
+import Providers from "../contexts/providers"
 import { cn } from "../lib/utils"
 import "./globals.css"
 
@@ -20,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen")}>
+      <body className={cn("min-h-screen overscroll-none")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="class"
@@ -28,7 +27,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Providers>
-            <Header />
             <div>{children}</div>
           </Providers>
         </ThemeProvider>

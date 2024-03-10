@@ -21,9 +21,10 @@ import {
   selectIsLastForm,
   selectShowByForm,
 } from "../../../../lib/redux/settings-slice"
+import { ExpanderWithHeightTransition } from "../../../expander-with-height-transition"
 import { Button } from "../../../ui/button"
+import { Card } from "../../../ui/card"
 import { Input } from "../../../ui/input"
-import { ExpanderWithHeightTransition } from "./expander-with-height-transition"
 import { DeletIconButton, MoveIconButton, ShowIconButton } from "./icon-button"
 
 const FORM_TO_ICON: { [section in ShowForm]: typeof BuildingOfficeIcon } = {
@@ -41,11 +42,12 @@ export const BaseForm = ({
   children: React.ReactNode
   className?: string
 }) => (
-  <section
-    className={`flex flex-col gap-3 rounded-md bg-white dark:bg-zinc-900 border p-6 pt-4 shadow transition-opacity duration-200 ${className}`}
-  >
-    {children}
-  </section>
+  // <section
+  //   className={`flex flex-col gap-3 rounded-md bg-white dark:bg-zinc-900 border p-6 pt-4 shadow transition-opacity duration-200 ${className}`}
+  // >
+  //   {children}
+  // </section>
+  <Card className="p-4">{children}</Card>
 )
 
 export const Form = ({
@@ -93,7 +95,6 @@ export const Form = ({
           />
           <Input
             type="text"
-            // className="block w-full border-b border-transparent text-lg font-semibold tracking-wide text-gray-900 outline-none hover:border-gray-300 hover:shadow-sm focus:border-gray-300 focus:shadow-sm"
             value={heading}
             onChange={(e) => setHeading(e.target.value)}
           />
