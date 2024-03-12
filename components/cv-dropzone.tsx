@@ -1,96 +1,96 @@
-import addPdfSrc from "@/public/assets/add-pdf.svg"
-import { LockClosedIcon, XMarkIcon } from "@heroicons/react/24/solid"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
-import { cx } from "../lib/cx"
-import { parseCvFromPdf } from "../lib/parse-cv-from-pdf"
-import { deepClone } from "../lib/parse-cv-from-pdf/deep-clone"
+import addPdfSrc from "@/public/assets/add-pdf.svg";
+import { LockClosedIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { cx } from "../lib/cx";
+import { parseCvFromPdf } from "../lib/parse-cv-from-pdf";
+import { deepClone } from "../lib/parse-cv-from-pdf/deep-clone";
 import {
   getHasUsedAppBefore,
   saveStateToLocalStorage,
-} from "../lib/redux/local-storage"
-import { ShowForm, initialSettings } from "../lib/redux/settings-slice"
-import { Button } from "./ui/button"
-import { Label } from "./ui/label"
+} from "../lib/redux/local-storage";
+import { ShowForm, initialSettings } from "../lib/redux/settings-slice";
+import { Button } from "./ui/button";
+import { Label } from "./ui/label";
 
 const defaultFileState = {
   name: "",
   size: 0,
   fileUrl: "",
-}
+};
 
 const CvDropzone = ({
   onFileUrlChange,
   className,
   playgroundView = false,
 }: {
-  onFileUrlChange: (fileUrl: string) => void
-  className?: string
-  playgroundView?: boolean
+  onFileUrlChange: (fileUrl: string) => void;
+  className?: string;
+  playgroundView?: boolean;
 }) => {
-  const [file, setFile] = useState(defaultFileState)
-  const [isHoveredOnDropzone, setIsHoveredOnDropZone] = useState(false)
-  const [hasNonPdfFile, setHasNonPdfFile] = useState(false)
+  const [file, setFile] = useState(defaultFileState);
+  const [isHoveredOnDropzone, setIsHoveredOnDropZone] = useState(false);
+  const [hasNonPdfFile, setHasNonPdfFile] = useState(false);
 
-  const hasFile = Boolean(file.name)
-  const router = useRouter()
+  const hasFile = Boolean(file.name);
+  const router = useRouter();
 
   const setNewFile = (newFile: File) => {
     if (file.fileUrl) {
-      URL.revokeObjectURL(file.fileUrl)
+      URL.revokeObjectURL(file.fileUrl);
     }
 
-    const { name, size } = newFile
-    const fileUrl = URL.createObjectURL(newFile)
-    setFile({ name, size, fileUrl })
-    onFileUrlChange(fileUrl)
-  }
+    const { name, size } = newFile;
+    const fileUrl = URL.createObjectURL(newFile);
+    setFile({ name, size, fileUrl });
+    onFileUrlChange(fileUrl);
+  };
 
   const onDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault()
-    const newFile = event.dataTransfer.files[0]
+    event.preventDefault();
+    const newFile = event.dataTransfer.files[0];
     if (newFile.name.endsWith(".pdf")) {
-      setHasNonPdfFile(false)
-      setNewFile(newFile)
+      setHasNonPdfFile(false);
+      setNewFile(newFile);
     } else {
-      setHasNonPdfFile(true)
+      setHasNonPdfFile(true);
     }
-    setIsHoveredOnDropZone(false)
-  }
+    setIsHoveredOnDropZone(false);
+  };
 
   const onRemove = () => {
-    setFile(defaultFileState)
-    onFileUrlChange("")
-  }
+    setFile(defaultFileState);
+    onFileUrlChange("");
+  };
 
   const onInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files
-    if (!files) return
+    const files = event.target.files;
+    if (!files) return;
 
-    const newFile = files[0]
-    setNewFile(newFile)
-  }
+    const newFile = files[0];
+    setNewFile(newFile);
+  };
 
   const onImportClick = async () => {
-    const cv = await parseCvFromPdf(file.fileUrl)
-    const settings = deepClone(initialSettings)
+    const cv = await parseCvFromPdf(file.fileUrl);
+    const settings = deepClone(initialSettings);
     if (getHasUsedAppBefore()) {
-      const sections = Object.keys(settings.formToShow) as ShowForm[]
+      const sections = Object.keys(settings.formToShow) as ShowForm[];
       const sectionToFormToShow: Record<ShowForm, boolean> = {
         workExperiences: cv.workExperiences.length > 0,
         educations: cv.educations.length > 0,
         projects: cv.projects.length > 0,
         skills: cv.skills.descriptions.length > 0,
         custom: cv.custom.descriptions.length > 0,
-      }
+      };
       for (const section of sections) {
-        settings.formToShow[section] = sectionToFormToShow[section]
+        settings.formToShow[section] = sectionToFormToShow[section];
       }
     }
-    saveStateToLocalStorage({ cv, settings })
-    router.push("/editor")
-  }
+    saveStateToLocalStorage({ cv, settings });
+    router.push("/editor");
+  };
 
   return (
     <div
@@ -98,11 +98,11 @@ const CvDropzone = ({
         "flex justify-center rounded-md border-2 border-dashed border-white px-6",
         isHoveredOnDropzone && "border-red-300",
         playgroundView ? "pb-6 pt-4" : "py-12",
-        className,
+        className
       )}
       onDragOver={(event) => {
-        event.preventDefault()
-        setIsHoveredOnDropZone(true)
+        event.preventDefault();
+        setIsHoveredOnDropZone(true);
       }}
       onDragLeave={() => setIsHoveredOnDropZone(false)}
       onDrop={onDrop}
@@ -110,7 +110,7 @@ const CvDropzone = ({
       <div
         className={cx(
           "text-center",
-          playgroundView ? "space-y-2" : "space-y-3",
+          playgroundView ? "space-y-2" : "space-y-3"
         )}
       >
         {!playgroundView && (
@@ -156,7 +156,7 @@ const CvDropzone = ({
                   "cursor-pointer rounded-md px-6 pb-2.5 pt-2 shadow-sm text-white dark:text-black",
                   playgroundView
                     ? "border"
-                    : "bg-primary text-primary-foreground hover:bg-primary/90",
+                    : "bg-primary text-primary-foreground hover:bg-primary/90"
                 )}
               >
                 Browse file
@@ -187,17 +187,17 @@ const CvDropzone = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const getFileSizeString = (filesizeB: number) => {
-  const fileSizeKB = filesizeB / 1024
-  const fileSizeMB = fileSizeKB / 1024
+  const fileSizeKB = filesizeB / 1024;
+  const fileSizeMB = fileSizeKB / 1024;
   if (fileSizeKB < 1000) {
-    return fileSizeKB.toPrecision(3) + " KB"
+    return fileSizeKB.toPrecision(3) + " KB";
   } else {
-    return fileSizeMB.toPrecision(3) + " MB"
+    return fileSizeMB.toPrecision(3) + " MB";
   }
-}
+};
 
-export default CvDropzone
+export default CvDropzone;
